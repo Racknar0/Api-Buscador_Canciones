@@ -2,10 +2,11 @@ import React from 'react'
 import Formulario from '../components/Formulario'
 import useLetras from '../hooks/useLetras'
 import Alerta from './Alerta';
+import Letra from './Letra';
 
 const Appletras = () => {
 
-    const { alerta } = useLetras();
+    const { alerta, letra, cargando } = useLetras();
 
   return (
     <>
@@ -13,8 +14,13 @@ const Appletras = () => {
       <Formulario />
 
       <main> 
-        {alerta && <Alerta>{alerta}</Alerta>}
+        {alerta ? <Alerta>{alerta}</Alerta> : 
+            letra ? <Letra /> :
+            cargando ? 'Cargando...' :
+            <p className='text-center'>Busca letras de tus artistas favoritos</p>
+        }
 
+        
       </main>
     </>
   )

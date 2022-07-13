@@ -2,7 +2,7 @@ import React from 'react'
 
 const Alerta = ({children}) => {
   return (
-    <div>
+    <div className='alerta'>
       {children}
     </div>
   )
