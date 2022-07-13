@@ -1,12 +1,13 @@
 import Appletras from './components/Appletras'
+import { LetrasProvider } from './context/LetrasProvider'
 
 function App() {
 
 
   return (
-    <Appletras >
-
-    </Appletras>
+    <LetrasProvider>
+      <Appletras />
+    </LetrasProvider>
   )
 }
 
