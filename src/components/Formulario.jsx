@@ -1,6 +1,10 @@
 import {useState} from 'react';
+import useLetras from '../hooks/useLetras';
+
 
 const Formulario = () => {
+
+    const { setAlerta } = useLetras();
 
     const [busqueda, setBusqueda] = useState({
         artista: '',
@@ -8,9 +12,20 @@ const Formulario = () => {
     });
     
 
+    const handleSubmit = e => {
+        e.preventDefault();
+        
+        if(Object.values(busqueda).includes('')){
+            setAlerta('Todos los campos son obligatorios');
+            return;
+        }
+
+    }
 
     return (
-        <form>
+        <form
+            onSubmit={handleSubmit}
+        >
             <legend>Busca por artisttas y canción</legend>
             <div className="form-grid">
                 <div>
